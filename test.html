@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky Sidebar with Bootstrap 5</title>
+
+  <!-- ===============================================-->
+  <!--    Favicons-->
+  <!-- ===============================================-->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/favicons/favicon.ico">
+  <link rel="manifest" href="assets/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="assets/favicons/mstile-150x150.png">
+
+  <!-- Link to Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+  <link rel="preload" href="https://markdoc.dev/_next/static/css/c5d90cc3be6b8825.css" as="style"/>
+  <link rel="stylesheet" href="https://markdoc.dev/_next/static/css/c5d90cc3be6b8825.css" data-n-g=""/>
+
+
+
+  <!-- Custom CSS -->
+  <style>
+
+    body{
+      font-size: 1em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #999;
+    }
+
+    .sticky-sidebar {
+      position: static; /* Remove sticky positioning by default */
+      height: auto; /* Remove fixed height by default */
+      overflow-y: auto; /* Enable vertical scrolling */
+      padding:20px;
+    }
+
+    .content {
+      padding-top: 150px; /* Adjust the padding value as needed */
+    }
+
+    /* Add padding for content on larger screens */
+    @media (min-width: 992px) {
+      .content {
+        padding-top: 100px;
+      }
+
+      /* Make the sidebar sticky on larger screens */
+      .sticky-sidebar {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        height: calc(100vh - 20px); /* Adjust the height as needed */
+      }
+
+      /* Add sticky behavior to sub-navigation */
+      .sticky-subnav {
+        position: fixed;
+        right:0;
+        top: 80px; /* Adjust the top value to align it with the main navigation */
+        width: 22%; /* Adjust the width as needed */
+        height: 100vh; /* Adjust the height as needed */
+        padding: 20px; /* Example padding, change as needed */
+        overflow-y: auto; /* Enable vertical scrolling */
+      }
+
+    }
+
+
+    /* Hide the sub-navigation on small screens */
+    @media (max-width: 991px) {
+      .sticky-subnav {
+        display: none;
+      }
+    }
+
+    .nav-item{
+      margin:0;
+      padding: 0;
+      font-size: 0.9em;
+      line-height: 0.9em;
+    }
+
+    .nav-link{
+      color: #000;
+      display: inline-block;
+      position: relative;
+      color: black;
+      text-decoration: none;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+    }
+
+    .navbar {
+      background-color: #FFF;
+    }
+    .black-icon {
+      color: black;
+      transition: transform 0.3s ease-in-out;
+      font-size: 0.8em;
+    }
+
+    .nav-link:hover .black-icon {
+      transform: translateX(3px); /* Adjust this value to set the desired right movement */
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+
+  <!-- Nav -->
+  <nav class="navbar navbar-expand border-bottom fixed-top px-3">
+    <div class="container-fluid">
+      <!-- Logo (left side) -->
+      <a class="navbar-brand" href="#">
+        <img src="assets/img/stones_docs_logo.png" alt="Logo" height="40">
+      </a>
+
+      
+      <!-- Hamburger menu button (visible on mobile) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links (right side) -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login <i class="fas fa-arrow-right black-icon"></i></a>
+          </li>
+          <!-- Add more links here as needed -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid">
+
+    <div class="row pt-5">
+      <!-- Sticky Sidebar Navigation -->
+      <div class="col-md-2 sticky-sidebar p-4">
+        <h3>Modules</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#section1">Creating modules</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section2">Adding lessons</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section3">Video guidelines</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section3">Content templates</a>
+          </li>
+          <!-- Add more sections here -->
+        </ul>
+      </div>
+
+      <!-- Content Column -->
+      <div class="col-md-10 pt-5">
+        <!-- Sections content goes here -->
+
+        <div class="row">
+
+
+          <!-- Main content -->
+          <div class="col-md-9 pe-5 pb-5">
+
+                     <h1 class="jsx-bb9a15bc0967b3eb heading">
+                        <div id="what-is-markdoc" class="jsx-bb9a15bc0967b3eb"></div>
+                        Video guidelines
+                     </h1>
+                     <p>In a nutshell, we want each video to be no longer than 5-7 min. We would prefer you to create a series of videos rather than one big lesson video. There is no need to add in intro/outros or graphics, we do this for you.</p>
+ 
+
+                     <!-- Camera -->
+                     <a href="#camera" class="jsx-2a84f6446eab3a17">
+                        <h2 class="jsx-bb9a15bc0967b3eb heading">
+                           <div id="camera" class="jsx-bb9a15bc0967b3eb"></div>
+                           Camera
+                        </h2>
+                     </a>
+                     <ul>
+                        <li>Use a high-definition (HD) camera or a modern smartphone with good video capabilities (1080p or 4K resolution).</li>
+                        <li>If possible, use a camera with manual settings for exposure, focus, and white balance for more control over the video quality.</li>
+                     </ul>
+
+
+                     <!-- Lighting -->
+                     <a href="#lighting" class="jsx-2a84f6446eab3a17">
+                        <h2 class="jsx-bb9a15bc0967b3eb heading">
+                           <div id="lighting" class="jsx-bb9a15bc0967b3eb"></div>
+                           Lighting
+                        </h2>
+                     </a>
+                     <ul>
+                        <li>Good lighting is essential for clear and well-lit videos.</li>
+                        <li>Utilize natural light from windows whenever possible, or invest in softbox or LED lights to create even and flattering illumination.</li>
+                        <li>Avoid harsh shadows and ensure that your face and surroundings are well-lit.</li>
+                     </ul>
+
+
+                     <!-- Audio -->
+                     <a href="#audio" class="jsx-2a84f6446eab3a17">
+                        <h2 class="jsx-bb9a15bc0967b3eb heading">
+                           <div id="audio" class="jsx-bb9a15bc0967b3eb"></div>
+                           Audio
+                        </h2>
+                     </a>
+                     <ul>
+                        <li>High-quality audio is equally important as video quality.</li>
+                        <li>Ideally, use an external microphone, such as a lavalier or shotgun microphone, to capture clear and crisp audio.</li>
+                        <li>Minimize background noise by recording in a quiet environment or using soundproofing materials.</li>
+                     </ul>
+
+
+                     <!-- Background -->
+                     <a href="#background" class="jsx-2a84f6446eab3a17">
+                        <h2 class="jsx-bb9a15bc0967b3eb heading">
+                           <div id="background" class="jsx-bb9a15bc0967b3eb"></div>
+                           Background
+                        </h2>
+                     </a>
+                     <ul>
+                        <li>Choose a clean and uncluttered background that is relevant to the content.</li>
+                        <li>A neutral or professional setting is often preferred for learning videos.</li>
+                        <li>Consider using a green screen for more versatility in creating custom backgrounds.</li>
+                     </ul>
+
+
+                     <!-- Tripod or Stabilization -->
+                     <a href="#tripod" class="jsx-2a84f6446eab3a17">
+                        <h2 class="jsx-bb9a15bc0967b3eb heading">
+                           <div id="tripod" class="jsx-bb9a15bc0967b3eb"></div>
+                           Tripod or Stabilization
+                        </h2>
+                     </a>
+                     <ul>
+                        <li>Use a tripod or other stabilization equipment to avoid shaky footage.</li>
+                        <li>Steady shots contribute to a more polished and professional look.</li>
+                     </ul>
+
+
+                     <!-- Framing and Composition -->
+                     <a href="#framing" class="jsx-2a84f6446eab3a17">
+                        <h2 class="jsx-bb9a15bc0967b3eb heading">
+                           <div id="framing" class="jsx-bb9a15bc0967b3eb"></div>
+                           Framing and Composition
+                        </h2>
+                     </a>
+                     <ul>
+                        <li>Frame yourself in the center or off-center, following the rule of thirds.</li>
+                        <li>Ensure there is enough headroom and space around you, but not too much empty space.</li>
+                        <li>Pay attention to your positioning and gestures to maintain a visually engaging presentation</li>
+                     </ul>
+
+
+                     <!-- Script or Outline -->
+                     <a href="#script" class="jsx-2a84f6446eab3a17">
+                        <h2 class="jsx-bb9a15bc0967b3eb heading">
+                           <div id="script" class="jsx-bb9a15bc0967b3eb"></div>
+                           Script or Outline
+                        </h2>
+                     </a>
+                     <ul>
+                        <li>Prepare a script or detailed outline before recording to stay focused and organized.</li>
+                        <li>Practice your delivery to sound natural and confident.</li>
+                     </ul>
+
+
+                     <!-- Editing -->
+                     <a href="#editing" class="jsx-2a84f6446eab3a17">
+                        <h2 class="jsx-bb9a15bc0967b3eb heading">
+                           <div id="editing" class="jsx-bb9a15bc0967b3eb"></div>
+                           Editing
+                        </h2>
+                     </a>
+                     <p>Edit your videos to remove mistakes, pauses, and any irrelevant content.</p>
+
+
+                     <!-- Export and Compression -->
+                     <a href="#export" class="jsx-2a84f6446eab3a17">
+                        <h2 class="jsx-bb9a15bc0967b3eb heading">
+                           <div id="export" class="jsx-bb9a15bc0967b3eb"></div>
+                           Export and Compression
+                        </h2>
+                     </a>
+                     <ul>
+                        <li>Videos should not exceed 200MB. You may need to compress them to meet this requirement. There are many <a href="https://www.freeconvert.com/video-compressor">free tools</a> available to achieve this.</li>
+                        <li>We support the following formats: MP4, MOV, WMV, AVI, and FLV</li>
+                     </ul>
+
+
+
+          </div>
+
+          <!-- Sub Navigation (Sticky on larger screens) -->
+          <div class="col-md-3 sticky-subnav">
+            <ul class="nav border-start flex-column">
+              <li class="nav-item"><a class="nav-link" href="#camera">Camera</a></li>
+              <li class="nav-item"><a class="nav-link" href="#lighting">Lighting</a></li>
+              <li class="nav-item"><a class="nav-link" href="#audio">Audio</a></li>
+              <li class="nav-item"><a class="nav-link" href="#background">Background</a></li>
+              <li class="nav-item"><a class="nav-link" href="#tripod">Tripod or Stabilization</a></li>
+              <li class="nav-item"><a class="nav-link" href="#framing">Framing and Composition</a></li>
+              <li class="nav-item"><a class="nav-link" href="#script">Script or Outline</a></li>
+              <li class="nav-item"><a class="nav-link" href="#editing">Editing</a></li>
+              <li class="nav-item"><a class="nav-link" href="#export">Export and Compression</a></li>
+              <!-- Add more subsections here -->
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="border-top px-3">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <!-- Logo on the left -->
+        <div class="col-md-6">
+          <a target="_blank" rel="noreferrer" href="https://leadwithstones.com">
+             <img src="assets/img/stones_logo.png" height="30px"/>
+          </a>
+        </div>
+        <!-- Links on the right -->
+        <div class="col-md-6">
+          <ul class="list-inline text-end">
+            <li class="list-inline-item"><a href="#">Link 1</a></li>
+            <li class="list-inline-item"><a href="#">Link 2</a></li>
+            <!-- Add more links here -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Link to Bootstrap 5 JS (required for certain Bootstrap components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    // Function to handle anchor link clicks
+    $('a[href^="#"]').on('click', function(event) {
+      var target = $(this.getAttribute('href'));
+
+      if (target.length) {
+        event.preventDefault();
+        $('html, body').stop().animate({
+          scrollTop: target.offset().top - 100 // Adjust this value to set the correct padding-top
+        }, 10);
+      }
+    });
+  });
+  </script>
+
+
+</body>
+
+</html>
