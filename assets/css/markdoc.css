@@ -1,0 +1,1788 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");*,:after,:before {
+    box-sizing: border-box
+}
+
+* {
+    margin: 0
+}
+
+:root {
+    --default-vertical-spacing: 0.75rem;
+    --nav-height: 71.594px;
+    --footer-height: 61px;
+    --landing-page-max-width: 1200px;
+    --sans: -apple-system,BlinkMacSystemFont,Inter,Segoe UI,Helvetica Neue,sans-serif;
+    --serif: Tiempos,serif;
+    --mono: GT America Mono,Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+    --font-size-0: 8px;
+    --font-size-1: 12px;
+    --font-size-2: 13px;
+    --font-size-3: 16px;
+    --font-size-4: 18px;
+    --font-size-5: 24px;
+    --font-size-6: 32px;
+    --font-size-7: 38px;
+    --font-size-jumbo: 79px;
+    --line-height-1: 16px;
+    --line-height-2: 20px;
+    --line-height-3: 25px;
+    --line-height-4: 28px;
+    --line-height-5: 32px;
+    --line-height-6: 40px;
+    --line-height-7: 48px;
+    --line-height-jumbo: 90px
+}
+
+.light,:root {
+    --white: #fff;
+    --black: #18181b;
+    --black-light: #58585f;
+    --black-medium: #2c2c30;
+    --gray-light: #f6f9fc;
+    --gray-medium: #dce6e9;
+    --yellow: #ffd848;
+    --purple: #6e00f5;
+    --green: #0a993e;
+    --blue: #0073e6;
+    --magenta: #dc34dc;
+    --theme: var(--yellow);
+    --stripe: #0a2540;
+    --light: var(--white);
+    --dark: var(--black);
+    --text: var(--dark);
+    --contrast-dark: var(--dark);
+    --code-background: var(--gray-light);
+    --code-border: var(--gray-medium);
+    --toc-border: rgba(0,0,0,.14);
+    --translucent: rgba(0,0,0,.4);
+    --docsearch-primary-color: var(--black-medium)!important;
+    --docsearch-logo-color: var(--black-medium)!important
+}
+
+.dark {
+    --stripe: var(--white);
+    --light: var(--black);
+    --dark: var(--white);
+    --text: var(--dark);
+    --contrast-dark: var(--black-medium);
+    --code-background: var(--black-medium);
+    --code-border: var(--black-light);
+    --toc-border: var(--black-light);
+    --translucent: hsla(0,0%,100%,.4)
+}
+
+.dark,.page--landing pre[class*=language-],.sandbox .CodeMirror {
+    --light: var(--black);
+    --dark: var(--white);
+    --text: var(--dark);
+    --purple: var(--yellow);
+    --green: #00d924;
+    --blue: #80e9ff;
+    --magenta: #ff80ff
+}
+
+#__next,body,html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: var(--sans)
+}
+
+#__next {
+    isolation: isolate
+}
+
+body {
+    color: var(--text);
+    background: var(--light);
+    font-family: var(--sans)
+}
+
+body ::selection,body.dark ::selection {
+    color: var(--black)!important;
+    background: var(--theme)!important
+}
+
+body.modal-is-active {
+    overflow: hidden
+}
+
+a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 1px;
+    transition: opacity .3s ease
+}
+
+a:hover {
+    opacity: .75
+}
+
+.primary a,a.primary {
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap
+}
+
+.primary a:hover,a.primary:hover {
+    opacity: 1
+}
+
+.primary a:after,a.primary:after {
+    content: "\00a0→";
+    position: relative;
+    display: inline-block;
+    transition: transform .3s ease
+}
+
+.primary a:hover:after,a.primary:hover:after {
+    transform: translateX(3px)
+}
+
+button {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: none
+}
+
+button,input,select,textarea {
+    font: inherit
+}
+
+.heading,a,code,kbd,li,p,span,td {
+    -webkit-font-smoothing: antialiased;
+    color: inherit
+}
+
+.heading,blockquote,p {
+    position: relative;
+    padding-bottom: var(--default-vertical-spacing)
+}
+
+p {
+    text-rendering: optimizeLegibility;
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-3)
+}
+
+p:last-child {
+    padding-bottom: 0
+}
+
+.h1,h1 {
+    font-size: var(--font-size-7);
+    line-height: var(--line-height-7)
+}
+
+.h2,h2 {
+    font-size: var(--font-size-5);
+    line-height: var(--line-height-5);
+    margin-top: 2.5rem
+}
+
+.h3,h3 {
+    font-size: var(--font-size-4);
+    line-height: var(--line-height-4);
+    margin-top: 2rem
+}
+
+.h4,h4 {
+    margin-top: 1rem
+}
+
+.h4,.h5,h4,h5 {
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-3)
+}
+
+.h5,.jumbo,h5 {
+    font-weight: 400
+}
+
+.jumbo {
+    font-family: var(--serif);
+    letter-spacing: -.01em
+}
+
+h1.jumbo {
+    font-size: var(--font-size-jumbo);
+    line-height: var(--line-height-jumbo)
+}
+
+h2.jumbo {
+    font-size: 72px;
+    line-height: 84px;
+    margin-top: 0;
+    padding-bottom: 1.5rem
+}
+
+h3.jumbo {
+    font-size: 43px;
+    line-height: 52px
+}
+
+blockquote {
+    margin: 1.3rem 0 1.1rem
+}
+
+li {
+    margin: 10px 0
+}
+
+code {
+    font-size: inherit;
+    font-size: 15px;
+    font-family: var(--mono);
+    font-weight: 500;
+    padding: 1px 2px;
+    background: var(--code-background);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    white-space: nowrap
+}
+
+img {
+    max-width: 100%
+}
+
+p a+a>img {
+    margin-left: .75rem
+}
+
+pre {
+    border-radius: 3px;
+    border: 1px solid var(--code-border)
+}
+
+kbd {
+    font-family: var(--mono)
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    overflow: hidden
+}
+
+td>strong,th {
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-3);
+    font-family: var(--sans);
+    font-weight: 500;
+    text-align: left;
+    padding: 0 16px 8px
+}
+
+td {
+    padding: 12px 16px 16px;
+    background-clip: padding-box;
+    border-bottom: 1px solid var(--code-border)
+}
+
+tr:first-child td {
+    border-top: 1px solid var(--code-border)
+}
+
+tr td:first-child {
+    border-left: 1px solid var(--code-border)
+}
+
+tr td:last-child {
+    border-right: 1px solid var(--code-border)
+}
+
+tr:first-child td:first-child {
+    border-top-left-radius: 3px
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 3px
+}
+
+tr:first-child td:last-child {
+    border-top-right-radius: 3px
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 3px
+}
+
+article {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 0
+}
+
+.relative {
+    position: relative
+}
+
+.flex {
+    display: flex
+}
+
+.row {
+    flex-direction: row
+}
+
+.column {
+    flex-direction: column
+}
+
+.equal-width {
+    flex: 1 1
+}
+
+.prefers-no-animation {
+    display: none
+}
+
+pre[class*=language-] {
+    text-shadow: none!important;
+    color: var(--text)!important;
+    background: var(--code-background)!important;
+    font-size: 14px!important;
+    line-height: 22px!important;
+    font-family: var(--mono)!important;
+    margin: 0 0 var(--default-vertical-spacing)!important
+}
+
+pre[class*=language-] .md-link {
+    color: inherit!important
+}
+
+.token {
+    color: var(--text)!important;
+    background: transparent!important
+}
+
+.token.comment {
+    color: var(--translucent)!important
+}
+
+pre .token.boolean,pre .token.number,pre .token.string {
+    color: var(--magenta)!important
+}
+
+pre .token.function,pre .token.tag,pre .token.tagType {
+    color: var(--blue)!important
+}
+
+.cm-attribute,pre .token.keyword {
+    color: var(--purple)!important
+}
+
+pre .token.variable {
+    color: var(--green)!important
+}
+
+.sandbox span.cm-comment {
+    color: var(--gray-medium)
+}
+
+.sandbox span.cm-keyword,.sandbox span.cm-tag {
+    color: var(--blue)
+}
+
+.sandbox span.cm-string {
+    color: var(--magenta)
+}
+
+.sandbox span.cm-atom,.sandbox span.cm-number {
+    color: var(--purple)
+}
+
+.sandbox span.cm-link,.sandbox span.cm-url {
+    text-decoration: none;
+    color: var(--theme)
+}
+
+.sandbox span.cm-property {
+    color: inherit
+}
+
+.sandbox span.cm-header,.sandbox span.cm-strong {
+    font-weight: 400
+}
+
+main .CodeMirror,main .react-codemirror2 {
+    width: 100%;
+    cursor: text;
+    height: 100%;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 21px
+}
+
+main .CodeMirror-gutters {
+    background-color: var(--contrast-dark);
+    border-right: 1px solid hsla(0,0%,100%,.22);
+    padding-right: 8px
+}
+
+main .CodeMirror-selected,main .CodeMirror-selectedtext {
+    color: var(--black)!important;
+    background: var(--theme)!important
+}
+
+main .CodeMirror-linenumber {
+    color: hsla(0,0%,100%,.22)
+}
+
+main .CodeMirror-cursor {
+    border-color: var(--theme)
+}
+
+main .CodeMirror-scroll {
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none
+}
+
+main .CodeMirror-scroll::-webkit-scrollbar {
+    display: none
+}
+
+@media screen and (max-width: 1291px) {
+    :root {
+        --landing-page-max-width:93vw
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --landing-page-max-width:calc(100vw - 60px);
+        --font-size-jumbo: 55px;
+        --line-height-jumbo: 65px
+    }
+
+    h2.jumbo {
+        font-size: 43px;
+        line-height: 55px
+    }
+
+    h3.jumbo {
+        font-size: 35px;
+        line-height: 46px
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --landing-page-max-width:90vw;
+        --font-size-jumbo: 38px;
+        --line-height-jumbo: 45px
+    }
+
+    p {
+        font-size: var(--font-size-3);
+        line-height: var(--line-height-3)
+    }
+
+    h2.jumbo {
+        font-size: 34px;
+        line-height: 47px
+    }
+
+    blockquote {
+        margin: .75rem 0
+    }
+
+    .no-mobile {
+        display: none
+    }
+}
+
+@media (prefers-reduced-motion) {
+    .prefers-animation {
+        display: none
+    }
+
+    .prefers-no-animation {
+        display: initial
+    }
+}
+
+/*! @docsearch/css 3.6.0 | MIT License | © Algolia, Inc. and contributors | https://docsearch.algolia.com */
+:root {
+    --docsearch-primary-color: #5468ff;
+    --docsearch-text-color: #1c1e21;
+    --docsearch-spacing: 12px;
+    --docsearch-icon-stroke-width: 1.4;
+    --docsearch-highlight-color: var(--docsearch-primary-color);
+    --docsearch-muted-color: #969faf;
+    --docsearch-container-background: rgba(101,108,133,.8);
+    --docsearch-logo-color: #5468ff;
+    --docsearch-modal-width: 560px;
+    --docsearch-modal-height: 600px;
+    --docsearch-modal-background: #f5f6f7;
+    --docsearch-modal-shadow: inset 1px 1px 0 0 hsla(0,0%,100%,.5),0 3px 8px 0 #555a64;
+    --docsearch-searchbox-height: 56px;
+    --docsearch-searchbox-background: #ebedf0;
+    --docsearch-searchbox-focus-background: #fff;
+    --docsearch-searchbox-shadow: inset 0 0 0 2px var(--docsearch-primary-color);
+    --docsearch-hit-height: 56px;
+    --docsearch-hit-color: #444950;
+    --docsearch-hit-active-color: #fff;
+    --docsearch-hit-background: #fff;
+    --docsearch-hit-shadow: 0 1px 3px 0 #d4d9e1;
+    --docsearch-key-gradient: linear-gradient(-225deg,#d5dbe4,#f8f8f8);
+    --docsearch-key-shadow: inset 0 -2px 0 0 #cdcde6,inset 0 0 1px 1px #fff,0 1px 2px 1px rgba(30,35,90,.4);
+    --docsearch-key-pressed-shadow: inset 0 -2px 0 0 #cdcde6,inset 0 0 1px 1px #fff,0 1px 1px 0 rgba(30,35,90,.4);
+    --docsearch-footer-height: 44px;
+    --docsearch-footer-background: #fff;
+    --docsearch-footer-shadow: 0 -1px 0 0 #e0e3e8,0 -3px 6px 0 rgba(69,98,155,.12)
+}
+
+html[data-theme=dark] {
+    --docsearch-text-color: #f5f6f7;
+    --docsearch-container-background: rgba(9,10,17,.8);
+    --docsearch-modal-background: #15172a;
+    --docsearch-modal-shadow: inset 1px 1px 0 0 #2c2e40,0 3px 8px 0 #000309;
+    --docsearch-searchbox-background: #090a11;
+    --docsearch-searchbox-focus-background: #000;
+    --docsearch-hit-color: #bec3c9;
+    --docsearch-hit-shadow: none;
+    --docsearch-hit-background: #090a11;
+    --docsearch-key-gradient: linear-gradient(-26.5deg,#565872,#31355b);
+    --docsearch-key-shadow: inset 0 -2px 0 0 #282d55,inset 0 0 1px 1px #51577d,0 2px 2px 0 rgba(3,4,9,.3);
+    --docsearch-key-pressed-shadow: inset 0 -2px 0 0 #282d55,inset 0 0 1px 1px #51577d,0 1px 1px 0 rgba(3,4,9,.302);
+    --docsearch-footer-background: #1e2136;
+    --docsearch-footer-shadow: inset 0 1px 0 0 rgba(73,76,106,.5),0 -4px 8px 0 rgba(0,0,0,.2);
+    --docsearch-logo-color: #fff;
+    --docsearch-muted-color: #7f8497
+}
+
+.DocSearch-Button {
+    align-items: center;
+    background: var(--docsearch-searchbox-background);
+    border: 0;
+    border-radius: 40px;
+    color: var(--docsearch-muted-color);
+    cursor: pointer;
+    display: flex;
+    font-weight: 500;
+    height: 36px;
+    justify-content: space-between;
+    margin: 0 0 0 16px;
+    padding: 0 8px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none
+}
+
+.DocSearch-Button:active,.DocSearch-Button:focus,.DocSearch-Button:hover {
+    background: var(--docsearch-searchbox-focus-background);
+    box-shadow: var(--docsearch-searchbox-shadow);
+    color: var(--docsearch-text-color);
+    outline: none
+}
+
+.DocSearch-Button-Container {
+    align-items: center;
+    display: flex
+}
+
+.DocSearch-Search-Icon {
+    stroke-width: 1.6
+}
+
+.DocSearch-Button .DocSearch-Search-Icon {
+    color: var(--docsearch-text-color)
+}
+
+.DocSearch-Button-Placeholder {
+    font-size: 1rem;
+    padding: 0 12px 0 6px
+}
+
+.DocSearch-Button-Keys {
+    display: flex;
+    min-width: calc(40px + .8em)
+}
+
+.DocSearch-Button-Key {
+    align-items: center;
+    background: var(--docsearch-key-gradient);
+    border-radius: 3px;
+    box-shadow: var(--docsearch-key-shadow);
+    color: var(--docsearch-muted-color);
+    display: flex;
+    height: 18px;
+    justify-content: center;
+    margin-right: .4em;
+    position: relative;
+    padding: 0 0 2px;
+    border: 0;
+    top: -1px;
+    width: 20px
+}
+
+.DocSearch-Button-Key--pressed {
+    transform: translate3d(0,1px,0);
+    box-shadow: var(--docsearch-key-pressed-shadow)
+}
+
+@media (max-width: 768px) {
+    .DocSearch-Button-Keys,.DocSearch-Button-Placeholder {
+        display:none
+    }
+}
+
+.DocSearch--active {
+    overflow: hidden!important
+}
+
+.DocSearch-Container,.DocSearch-Container * {
+    box-sizing: border-box
+}
+
+.DocSearch-Container {
+    background-color: var(--docsearch-container-background);
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 200
+}
+
+.DocSearch-Container a {
+    text-decoration: none
+}
+
+.DocSearch-Link {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    border: 0;
+    color: var(--docsearch-highlight-color);
+    cursor: pointer;
+    font: inherit;
+    margin: 0;
+    padding: 0
+}
+
+.DocSearch-Modal {
+    background: var(--docsearch-modal-background);
+    border-radius: 6px;
+    box-shadow: var(--docsearch-modal-shadow);
+    flex-direction: column;
+    margin: 60px auto auto;
+    max-width: var(--docsearch-modal-width);
+    position: relative
+}
+
+.DocSearch-SearchBar {
+    display: flex;
+    padding: var(--docsearch-spacing) var(--docsearch-spacing) 0
+}
+
+.DocSearch-Form {
+    align-items: center;
+    background: var(--docsearch-searchbox-focus-background);
+    border-radius: 4px;
+    box-shadow: var(--docsearch-searchbox-shadow);
+    display: flex;
+    height: var(--docsearch-searchbox-height);
+    margin: 0;
+    padding: 0 var(--docsearch-spacing);
+    position: relative;
+    width: 100%
+}
+
+.DocSearch-Input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: var(--docsearch-text-color);
+    flex: 1 1;
+    font: inherit;
+    font-size: 1.2em;
+    height: 100%;
+    outline: none;
+    padding: 0 0 0 8px;
+    width: 80%
+}
+
+.DocSearch-Input::placeholder {
+    color: var(--docsearch-muted-color);
+    opacity: 1
+}
+
+.DocSearch-Input::-webkit-search-cancel-button,.DocSearch-Input::-webkit-search-decoration,.DocSearch-Input::-webkit-search-results-button,.DocSearch-Input::-webkit-search-results-decoration {
+    display: none
+}
+
+.DocSearch-LoadingIndicator,.DocSearch-MagnifierLabel,.DocSearch-Reset {
+    margin: 0;
+    padding: 0
+}
+
+.DocSearch-MagnifierLabel,.DocSearch-Reset {
+    align-items: center;
+    color: var(--docsearch-highlight-color);
+    display: flex;
+    justify-content: center
+}
+
+.DocSearch-Container--Stalled .DocSearch-MagnifierLabel,.DocSearch-LoadingIndicator {
+    display: none
+}
+
+.DocSearch-Container--Stalled .DocSearch-LoadingIndicator {
+    align-items: center;
+    color: var(--docsearch-highlight-color);
+    display: flex;
+    justify-content: center
+}
+
+@media screen and (prefers-reduced-motion:reduce) {
+    .DocSearch-Reset {
+        animation: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: none;
+        border: 0;
+        border-radius: 50%;
+        color: var(--docsearch-icon-color);
+        cursor: pointer;
+        right: 0;
+        stroke-width: var(--docsearch-icon-stroke-width)
+    }
+}
+
+.DocSearch-Reset {
+    animation: fade-in .1s ease-in forwards;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    border: 0;
+    border-radius: 50%;
+    color: var(--docsearch-icon-color);
+    cursor: pointer;
+    padding: 2px;
+    right: 0;
+    stroke-width: var(--docsearch-icon-stroke-width)
+}
+
+.DocSearch-Reset[hidden] {
+    display: none
+}
+
+.DocSearch-Reset:hover {
+    color: var(--docsearch-highlight-color)
+}
+
+.DocSearch-LoadingIndicator svg,.DocSearch-MagnifierLabel svg {
+    height: 24px;
+    width: 24px
+}
+
+.DocSearch-Cancel {
+    display: none
+}
+
+.DocSearch-Dropdown {
+    max-height: calc(var(--docsearch-modal-height) - var(--docsearch-searchbox-height) - var(--docsearch-spacing) - var(--docsearch-footer-height));
+    min-height: var(--docsearch-spacing);
+    overflow-y: auto;
+    overflow-y: overlay;
+    padding: 0 var(--docsearch-spacing);
+    scrollbar-color: var(--docsearch-muted-color) var(--docsearch-modal-background);
+    scrollbar-width: thin
+}
+
+.DocSearch-Dropdown::-webkit-scrollbar {
+    width: 12px
+}
+
+.DocSearch-Dropdown::-webkit-scrollbar-track {
+    background: transparent
+}
+
+.DocSearch-Dropdown::-webkit-scrollbar-thumb {
+    background-color: var(--docsearch-muted-color);
+    border: 3px solid var(--docsearch-modal-background);
+    border-radius: 20px
+}
+
+.DocSearch-Dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.DocSearch-Label {
+    font-size: .75em;
+    line-height: 1.6em
+}
+
+.DocSearch-Help,.DocSearch-Label {
+    color: var(--docsearch-muted-color)
+}
+
+.DocSearch-Help {
+    font-size: .9em;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none
+}
+
+.DocSearch-Title {
+    font-size: 1.2em
+}
+
+.DocSearch-Logo a {
+    display: flex
+}
+
+.DocSearch-Logo svg {
+    color: var(--docsearch-logo-color);
+    margin-left: 8px
+}
+
+.DocSearch-Hits:last-of-type {
+    margin-bottom: 24px
+}
+
+.DocSearch-Hits mark {
+    background: none;
+    color: var(--docsearch-highlight-color)
+}
+
+.DocSearch-HitsFooter {
+    color: var(--docsearch-muted-color);
+    display: flex;
+    font-size: .85em;
+    justify-content: center;
+    margin-bottom: var(--docsearch-spacing);
+    padding: var(--docsearch-spacing)
+}
+
+.DocSearch-HitsFooter a {
+    border-bottom: 1px solid;
+    color: inherit
+}
+
+.DocSearch-Hit {
+    border-radius: 4px;
+    display: flex;
+    padding-bottom: 4px;
+    position: relative
+}
+
+@media screen and (prefers-reduced-motion:reduce) {
+    .DocSearch-Hit--deleting {
+        transition: none
+    }
+}
+
+.DocSearch-Hit--deleting {
+    opacity: 0;
+    transition: all .25s linear
+}
+
+@media screen and (prefers-reduced-motion:reduce) {
+    .DocSearch-Hit--favoriting {
+        transition: none
+    }
+}
+
+.DocSearch-Hit--favoriting {
+    transform: scale(0);
+    transform-origin: top center;
+    transition: all .25s linear;
+    transition-delay: .25s
+}
+
+.DocSearch-Hit a {
+    background: var(--docsearch-hit-background);
+    border-radius: 4px;
+    box-shadow: var(--docsearch-hit-shadow);
+    display: block;
+    padding-left: var(--docsearch-spacing);
+    width: 100%
+}
+
+.DocSearch-Hit-source {
+    background: var(--docsearch-modal-background);
+    color: var(--docsearch-highlight-color);
+    font-size: .85em;
+    font-weight: 600;
+    line-height: 32px;
+    margin: 0 -4px;
+    padding: 8px 4px 0;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10
+}
+
+.DocSearch-Hit-Tree {
+    color: var(--docsearch-muted-color);
+    height: var(--docsearch-hit-height);
+    opacity: .5;
+    stroke-width: var(--docsearch-icon-stroke-width);
+    width: 24px
+}
+
+.DocSearch-Hit[aria-selected=true] a {
+    background-color: var(--docsearch-highlight-color)
+}
+
+.DocSearch-Hit[aria-selected=true] mark {
+    text-decoration: underline
+}
+
+.DocSearch-Hit-Container {
+    align-items: center;
+    color: var(--docsearch-hit-color);
+    display: flex;
+    flex-direction: row;
+    height: var(--docsearch-hit-height);
+    padding: 0 var(--docsearch-spacing) 0 0
+}
+
+.DocSearch-Hit-icon {
+    height: 20px;
+    width: 20px
+}
+
+.DocSearch-Hit-action,.DocSearch-Hit-icon {
+    color: var(--docsearch-muted-color);
+    stroke-width: var(--docsearch-icon-stroke-width)
+}
+
+.DocSearch-Hit-action {
+    align-items: center;
+    display: flex;
+    height: 22px;
+    width: 22px
+}
+
+.DocSearch-Hit-action svg {
+    display: block;
+    height: 18px;
+    width: 18px
+}
+
+.DocSearch-Hit-action+.DocSearch-Hit-action {
+    margin-left: 6px
+}
+
+.DocSearch-Hit-action-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    border: 0;
+    border-radius: 50%;
+    color: inherit;
+    cursor: pointer;
+    padding: 2px
+}
+
+svg.DocSearch-Hit-Select-Icon {
+    display: none
+}
+
+.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-Select-Icon {
+    display: block
+}
+
+.DocSearch-Hit-action-button:focus,.DocSearch-Hit-action-button:hover {
+    background: rgba(0,0,0,.2);
+    transition: background-color .1s ease-in
+}
+
+@media screen and (prefers-reduced-motion:reduce) {
+    .DocSearch-Hit-action-button:focus,.DocSearch-Hit-action-button:hover {
+        transition: none
+    }
+}
+
+.DocSearch-Hit-action-button:focus path,.DocSearch-Hit-action-button:hover path {
+    fill: #fff
+}
+
+.DocSearch-Hit-content-wrapper {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 1.2em;
+    margin: 0 8px;
+    overflow-x: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 80%
+}
+
+.DocSearch-Hit-title {
+    font-size: .9em
+}
+
+.DocSearch-Hit-path {
+    color: var(--docsearch-muted-color);
+    font-size: .75em
+}
+
+.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-Tree,.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-action,.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-icon,.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-path,.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-text,.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-title,.DocSearch-Hit[aria-selected=true] mark {
+    color: var(--docsearch-hit-active-color)!important
+}
+
+@media screen and (prefers-reduced-motion:reduce) {
+    .DocSearch-Hit-action-button:focus,.DocSearch-Hit-action-button:hover {
+        background: rgba(0,0,0,.2);
+        transition: none
+    }
+}
+
+.DocSearch-ErrorScreen,.DocSearch-NoResults,.DocSearch-StartScreen {
+    font-size: .9em;
+    margin: 0 auto;
+    padding: 36px 0;
+    text-align: center;
+    width: 80%
+}
+
+.DocSearch-Screen-Icon {
+    color: var(--docsearch-muted-color);
+    padding-bottom: 12px
+}
+
+.DocSearch-NoResults-Prefill-List {
+    display: inline-block;
+    padding-bottom: 24px;
+    text-align: left
+}
+
+.DocSearch-NoResults-Prefill-List ul {
+    display: inline-block;
+    padding: 8px 0 0
+}
+
+.DocSearch-NoResults-Prefill-List li {
+    list-style-position: inside;
+    list-style-type: "» "
+}
+
+.DocSearch-Prefill {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    border: 0;
+    border-radius: 1em;
+    color: var(--docsearch-highlight-color);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 0
+}
+
+.DocSearch-Prefill:focus,.DocSearch-Prefill:hover {
+    outline: none;
+    text-decoration: underline
+}
+
+.DocSearch-Footer {
+    align-items: center;
+    background: var(--docsearch-footer-background);
+    border-radius: 0 0 8px 8px;
+    box-shadow: var(--docsearch-footer-shadow);
+    display: flex;
+    flex-direction: row-reverse;
+    flex-shrink: 0;
+    height: var(--docsearch-footer-height);
+    justify-content: space-between;
+    padding: 0 var(--docsearch-spacing);
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: 100%;
+    z-index: 300
+}
+
+.DocSearch-Commands {
+    color: var(--docsearch-muted-color);
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.DocSearch-Commands li {
+    align-items: center;
+    display: flex
+}
+
+.DocSearch-Commands li:not(:last-of-type) {
+    margin-right: .8em
+}
+
+.DocSearch-Commands-Key {
+    align-items: center;
+    background: var(--docsearch-key-gradient);
+    border-radius: 2px;
+    box-shadow: var(--docsearch-key-shadow);
+    display: flex;
+    height: 18px;
+    justify-content: center;
+    margin-right: .4em;
+    padding: 0 0 1px;
+    color: var(--docsearch-muted-color);
+    border: 0;
+    width: 20px
+}
+
+.DocSearch-VisuallyHiddenForAccessibility {
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px
+}
+
+@media (max-width: 768px) {
+    :root {
+        --docsearch-spacing:10px;
+        --docsearch-footer-height: 40px
+    }
+
+    .DocSearch-Dropdown {
+        height: 100%
+    }
+
+    .DocSearch-Container {
+        height: 100vh;
+        height: -webkit-fill-available;
+        height: calc(var(--docsearch-vh, 1vh)*100);
+        position: absolute
+    }
+
+    .DocSearch-Footer {
+        border-radius: 0;
+        bottom: 0;
+        position: absolute
+    }
+
+    .DocSearch-Hit-content-wrapper {
+        display: flex;
+        position: relative;
+        width: 80%
+    }
+
+    .DocSearch-Modal {
+        border-radius: 0;
+        box-shadow: none;
+        height: 100vh;
+        height: -webkit-fill-available;
+        height: calc(var(--docsearch-vh, 1vh)*100);
+        margin: 0;
+        max-width: 100%;
+        width: 100%
+    }
+
+    .DocSearch-Dropdown {
+        max-height: calc(var(--docsearch-vh, 1vh)*100 - var(--docsearch-searchbox-height) - var(--docsearch-spacing) - var(--docsearch-footer-height))
+    }
+
+    .DocSearch-Cancel {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: none;
+        border: 0;
+        color: var(--docsearch-highlight-color);
+        cursor: pointer;
+        display: inline-block;
+        flex: none;
+        font: inherit;
+        font-size: 1em;
+        font-weight: 500;
+        margin-left: var(--docsearch-spacing);
+        outline: none;
+        overflow: hidden;
+        padding: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        white-space: nowrap
+    }
+
+    .DocSearch-Commands,.DocSearch-Hit-Tree {
+        display: none
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+code[class*=language-],pre[class*=language-] {
+    color: #000;
+    background: none;
+    text-shadow: 0 1px #fff;
+    font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+    font-size: 1em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    hyphens: none
+}
+
+code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection {
+    text-shadow: none;
+    background: #b3d4fc
+}
+
+@media print {
+    code[class*=language-],pre[class*=language-] {
+        text-shadow: none
+    }
+}
+
+pre[class*=language-] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto
+}
+
+:not(pre)>code[class*=language-],pre[class*=language-] {
+    background: #f5f2f0
+}
+
+:not(pre)>code[class*=language-] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal
+}
+
+.token.cdata,.token.comment,.token.doctype,.token.prolog {
+    color: #708090
+}
+
+.token.punctuation {
+    color: #999
+}
+
+.token.namespace {
+    opacity: .7
+}
+
+.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag {
+    color: #905
+}
+
+.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string {
+    color: #690
+}
+
+.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url {
+    color: #9a6e3a;
+    background: hsla(0,0%,100%,.5)
+}
+
+.token.atrule,.token.attr-value,.token.keyword {
+    color: #07a
+}
+
+.token.class-name,.token.function {
+    color: #dd4a68
+}
+
+.token.important,.token.regex,.token.variable {
+    color: #e90
+}
+
+.token.bold,.token.important {
+    font-weight: 700
+}
+
+.token.italic {
+    font-style: italic
+}
+
+.token.entity {
+    cursor: help
+}
+
+.CodeMirror {
+    font-family: monospace;
+    height: 300px;
+    color: #000;
+    direction: ltr
+}
+
+.CodeMirror-lines {
+    padding: 4px 0
+}
+
+.CodeMirror pre.CodeMirror-line,.CodeMirror pre.CodeMirror-line-like {
+    padding: 0 4px
+}
+
+.CodeMirror-gutter-filler,.CodeMirror-scrollbar-filler {
+    background-color: #fff
+}
+
+.CodeMirror-gutters {
+    border-right: 1px solid #ddd;
+    background-color: #f7f7f7;
+    white-space: nowrap
+}
+
+.CodeMirror-linenumber {
+    padding: 0 3px 0 5px;
+    min-width: 20px;
+    text-align: right;
+    color: #999;
+    white-space: nowrap
+}
+
+.CodeMirror-guttermarker {
+    color: #000
+}
+
+.CodeMirror-guttermarker-subtle {
+    color: #999
+}
+
+.CodeMirror-cursor {
+    border-left: 1px solid #000;
+    border-right: none;
+    width: 0
+}
+
+.CodeMirror div.CodeMirror-secondarycursor {
+    border-left: 1px solid silver
+}
+
+.cm-fat-cursor .CodeMirror-cursor {
+    width: auto;
+    border: 0!important;
+    background: #7e7
+}
+
+.cm-fat-cursor div.CodeMirror-cursors {
+    z-index: 1
+}
+
+.cm-fat-cursor .CodeMirror-line::selection,.cm-fat-cursor .CodeMirror-line>span::selection,.cm-fat-cursor .CodeMirror-line>span>span::selection {
+    background: transparent
+}
+
+.cm-fat-cursor .CodeMirror-line::-moz-selection,.cm-fat-cursor .CodeMirror-line>span::-moz-selection,.cm-fat-cursor .CodeMirror-line>span>span::-moz-selection {
+    background: transparent
+}
+
+.cm-fat-cursor {
+    caret-color: transparent
+}
+
+@keyframes blink {
+    50% {
+        background-color: transparent
+    }
+}
+
+.cm-tab {
+    display: inline-block;
+    text-decoration: inherit
+}
+
+.CodeMirror-rulers {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -50px;
+    bottom: 0;
+    overflow: hidden
+}
+
+.CodeMirror-ruler {
+    border-left: 1px solid #ccc;
+    top: 0;
+    bottom: 0;
+    position: absolute
+}
+
+.cm-s-default .cm-header {
+    color: blue
+}
+
+.cm-s-default .cm-quote {
+    color: #090
+}
+
+.cm-negative {
+    color: #d44
+}
+
+.cm-positive {
+    color: #292
+}
+
+.cm-header,.cm-strong {
+    font-weight: 700
+}
+
+.cm-em {
+    font-style: italic
+}
+
+.cm-link {
+    text-decoration: underline
+}
+
+.cm-strikethrough {
+    text-decoration: line-through
+}
+
+.cm-s-default .cm-keyword {
+    color: #708
+}
+
+.cm-s-default .cm-atom {
+    color: #219
+}
+
+.cm-s-default .cm-number {
+    color: #164
+}
+
+.cm-s-default .cm-def {
+    color: #00f
+}
+
+.cm-s-default .cm-variable-2 {
+    color: #05a
+}
+
+.cm-s-default .cm-type,.cm-s-default .cm-variable-3 {
+    color: #085
+}
+
+.cm-s-default .cm-comment {
+    color: #a50
+}
+
+.cm-s-default .cm-string {
+    color: #a11
+}
+
+.cm-s-default .cm-string-2 {
+    color: #f50
+}
+
+.cm-s-default .cm-meta,.cm-s-default .cm-qualifier {
+    color: #555
+}
+
+.cm-s-default .cm-builtin {
+    color: #30a
+}
+
+.cm-s-default .cm-bracket {
+    color: #997
+}
+
+.cm-s-default .cm-tag {
+    color: #170
+}
+
+.cm-s-default .cm-attribute {
+    color: #00c
+}
+
+.cm-s-default .cm-hr {
+    color: #999
+}
+
+.cm-s-default .cm-link {
+    color: #00c
+}
+
+.cm-invalidchar,.cm-s-default .cm-error {
+    color: red
+}
+
+.CodeMirror-composing {
+    border-bottom: 2px solid
+}
+
+div.CodeMirror span.CodeMirror-matchingbracket {
+    color: #0b0
+}
+
+div.CodeMirror span.CodeMirror-nonmatchingbracket {
+    color: #a22
+}
+
+.CodeMirror-matchingtag {
+    background: rgba(255,150,0,.3)
+}
+
+.CodeMirror-activeline-background {
+    background: #e8f2ff
+}
+
+.CodeMirror {
+    position: relative;
+    overflow: hidden;
+    background: #fff
+}
+
+.CodeMirror-scroll {
+    overflow: scroll!important;
+    margin-bottom: -50px;
+    margin-right: -50px;
+    padding-bottom: 50px;
+    height: 100%;
+    outline: none;
+    position: relative;
+    z-index: 0
+}
+
+.CodeMirror-sizer {
+    position: relative;
+    border-right: 50px solid transparent
+}
+
+.CodeMirror-gutter-filler,.CodeMirror-hscrollbar,.CodeMirror-scrollbar-filler,.CodeMirror-vscrollbar {
+    position: absolute;
+    z-index: 6;
+    display: none;
+    outline: none
+}
+
+.CodeMirror-vscrollbar {
+    right: 0;
+    top: 0;
+    overflow-x: hidden;
+    overflow-y: scroll
+}
+
+.CodeMirror-hscrollbar {
+    bottom: 0;
+    left: 0;
+    overflow-y: hidden;
+    overflow-x: scroll
+}
+
+.CodeMirror-scrollbar-filler {
+    right: 0;
+    bottom: 0
+}
+
+.CodeMirror-gutter-filler {
+    left: 0;
+    bottom: 0
+}
+
+.CodeMirror-gutters {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    z-index: 3
+}
+
+.CodeMirror-gutter {
+    white-space: normal;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: -50px
+}
+
+.CodeMirror-gutter-wrapper {
+    position: absolute;
+    z-index: 4;
+    background: none!important;
+    border: none!important
+}
+
+.CodeMirror-gutter-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 4
+}
+
+.CodeMirror-gutter-elt {
+    position: absolute;
+    cursor: default;
+    z-index: 4
+}
+
+.CodeMirror-gutter-wrapper ::selection {
+    background-color: transparent
+}
+
+.CodeMirror-gutter-wrapper ::-moz-selection {
+    background-color: transparent
+}
+
+.CodeMirror-lines {
+    cursor: text;
+    min-height: 1px
+}
+
+.CodeMirror pre.CodeMirror-line,.CodeMirror pre.CodeMirror-line-like {
+    border-radius: 0;
+    border-width: 0;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0;
+    white-space: pre;
+    word-wrap: normal;
+    line-height: inherit;
+    color: inherit;
+    z-index: 2;
+    position: relative;
+    overflow: visible;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-variant-ligatures: contextual;
+    font-feature-settings: "calt";
+    font-variant-ligatures: contextual
+}
+
+.CodeMirror-wrap pre.CodeMirror-line,.CodeMirror-wrap pre.CodeMirror-line-like {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: normal
+}
+
+.CodeMirror-linebackground {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0
+}
+
+.CodeMirror-linewidget {
+    position: relative;
+    z-index: 2;
+    padding: .1px
+}
+
+.CodeMirror-rtl pre {
+    direction: rtl
+}
+
+.CodeMirror-code {
+    outline: none
+}
+
+.CodeMirror-gutter,.CodeMirror-gutters,.CodeMirror-linenumber,.CodeMirror-scroll,.CodeMirror-sizer {
+    box-sizing: content-box
+}
+
+.CodeMirror-measure {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden
+}
+
+.CodeMirror-cursor {
+    position: absolute;
+    pointer-events: none
+}
+
+.CodeMirror-measure pre {
+    position: static
+}
+
+div.CodeMirror-cursors {
+    visibility: hidden;
+    position: relative;
+    z-index: 3
+}
+
+.CodeMirror-focused div.CodeMirror-cursors,div.CodeMirror-dragcursors {
+    visibility: visible
+}
+
+.CodeMirror-selected {
+    background: #d9d9d9
+}
+
+.CodeMirror-focused .CodeMirror-selected {
+    background: #d7d4f0
+}
+
+.CodeMirror-crosshair {
+    cursor: crosshair
+}
+
+.CodeMirror-line::selection,.CodeMirror-line>span::selection,.CodeMirror-line>span>span::selection {
+    background: #d7d4f0
+}
+
+.CodeMirror-line::-moz-selection,.CodeMirror-line>span::-moz-selection,.CodeMirror-line>span>span::-moz-selection {
+    background: #d7d4f0
+}
+
+.cm-searching {
+    background-color: #ffa;
+    background-color: rgba(255,255,0,.4)
+}
+
+.cm-force-border {
+    padding-right: .1px
+}
+
+@media print {
+    .CodeMirror div.CodeMirror-cursors {
+        visibility: hidden
+    }
+}
+
+.cm-tab-wrap-hack:after {
+    content: ""
+}
+
+span.CodeMirror-selectedtext {
+    background: none
+}
